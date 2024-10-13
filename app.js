@@ -22,6 +22,27 @@ function Snake(){
         this.x += this.xSpeed;
         this.y += this.ySpeed;
     };
+    this.updateDirection = function (key){
+        console.log(key)
+        switch (key){
+            case "ArrowUp":
+                this.xSpeed = 0
+                this.ySpeed = -10
+                break
+            case "ArrowLeft":
+                this.xSpeed = -10
+                this.ySpeed = 0
+                break
+            case "ArrowRight":
+                this.xSpeed = 10
+                this.ySpeed = 0
+                break
+            case "ArrowDown":
+                this.xSpeed = 0
+                this.ySpeed = 10
+                break
+        }
+    }
 }
 
 window.addEventListener("load",()=>{
@@ -30,5 +51,8 @@ setInterval(()=>{
     ctx.clearRect(0 , 0 , canvas.width , canvas.height)
     snake.snakeDraw();
     snake.updateLocation()
-    },100)
+    },50)
+    window.addEventListener("keydown" , (event)=>{
+        snake.updateDirection(event.key)
+    })
 })
