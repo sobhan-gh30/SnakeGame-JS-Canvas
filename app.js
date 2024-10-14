@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
 
-let scale = 15;
+let scale = 20;
 let rows = canvas.height / scale
 let columns = canvas.width / scale
 
