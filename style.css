@@ -9,9 +9,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("IMG/ai-generated-8520854_1920.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 canvas{
-    border: 0.1rem solid #DBE3E5;
-    background-color: #080808;
+    border: 0.2rem solid #DBE3E5;
+    backdrop-filter: blur(2px);
+    background-color: rgba(8, 8, 8, 0.8);
 }

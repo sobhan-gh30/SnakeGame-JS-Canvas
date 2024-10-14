@@ -16,7 +16,7 @@ function Apple() {
     }
 
     this.appleDraw = function() {
-        ctx.fillStyle = "#8B080D";
+        ctx.fillStyle = "#b01319";
         ctx.fillRect(this.x, this.y, scale, scale);
     };
 }
@@ -28,7 +28,7 @@ function Snake() {
     this.ySpeed = 0;
 
     this.snakeDraw = function() {
-        ctx.fillStyle = "#084646";
+        ctx.fillStyle = "#0e6b20";
         ctx.fillRect(this.x, this.y, scale, scale);
     };
 
