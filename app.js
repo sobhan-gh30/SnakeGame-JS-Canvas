@@ -21,6 +21,18 @@ function Snake(){
     this.updateLocation = function () {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
+        if (this.x > canvas.width){
+            this.x = 0
+        }
+        if (this.y > canvas.height){
+            this.y = 0
+        }
+        if (this.x < 0){
+            this.x = canvas.width
+        }
+        if (this.y < 0){
+            this.y = canvas.height
+        }
     };
     this.updateDirection = function (key){
         console.log(key)
