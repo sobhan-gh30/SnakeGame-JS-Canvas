@@ -45,7 +45,6 @@ function Snake(){
         }
     };
     this.updateDirection = function (key){
-        console.log(key)
         switch (key){
             case "ArrowUp":
                 this.xSpeed = 0
@@ -65,6 +64,9 @@ function Snake(){
                 break
         }
     }
+    this.hasEatenFood = function (food){
+        return this.x === food.x && this.y === food.y;
+    }
 }
 
 window.addEventListener("load",()=>{
@@ -76,15 +78,12 @@ window.addEventListener("load",()=>{
         snake.snakeDraw();
         apple.appleDraw();
         snake.updateLocation()
-        },50)
+        if(snake.hasEatenFood(apple)){
+            apple.generateLocation()
+            console.log(apple.x + " " + apple.y)
+            }
+        },60)
         window.addEventListener("keydown" , (event)=>{
             snake.updateDirection(event.key)
         })
-})
-
-
-
-window.addEventListener("load",()=>{
-
-
 })

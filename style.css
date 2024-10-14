@@ -12,6 +12,6 @@ body{
 }
 
 canvas{
-    border: 0.5rem solid #DBE3E5;
+    border: 0.1rem solid #DBE3E5;
     background-color: #080808;
 }
