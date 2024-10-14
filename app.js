@@ -2,11 +2,21 @@ const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
 
 let scale = 15;
+let rows = canvas.height / scale
+let columns = canvas.width / scale
 
+function Apple() {
 
-//creating the apple
-ctx.fillStyle = "#8B080D"
-ctx.fillRect(500 , 100 , 15 , 15)
+    this.generateLocation = function(){
+        this.x = (Math.floor(Math.random() * rows - 1) + 1) * scale;
+        this.y = (Math.floor(Math.random() * columns - 1) + 1) * scale;
+    }
+    this.appleDraw = function () {
+        ctx.fillStyle = "#8B080D"
+        ctx.fillRect(this.x, this.y, scale, scale);
+    };
+}
+
 
 function Snake(){
     this.x = 10
@@ -58,13 +68,23 @@ function Snake(){
 }
 
 window.addEventListener("load",()=>{
-let snake = new Snake();
-setInterval(()=>{
-    ctx.clearRect(0 , 0 , canvas.width , canvas.height)
-    snake.snakeDraw();
-    snake.updateLocation()
-    },50)
-    window.addEventListener("keydown" , (event)=>{
-        snake.updateDirection(event.key)
-    })
+    let snake = new Snake();
+    let apple = new Apple();
+    apple.generateLocation();
+    setInterval(()=>{
+        ctx.clearRect(0 , 0 , canvas.width , canvas.height)
+        snake.snakeDraw();
+        apple.appleDraw();
+        snake.updateLocation()
+        },50)
+        window.addEventListener("keydown" , (event)=>{
+            snake.updateDirection(event.key)
+        })
+})
+
+
+
+window.addEventListener("load",()=>{
+
+
 })
